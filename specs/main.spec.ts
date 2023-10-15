@@ -1,16 +1,25 @@
 import { provider } from '../project';
 
-const { browser, I } = provider.actor;
+const { suite, test } = provider.testRunner;
 
-describe('Main page suite', function () {
-  it('[P] login', async function () {
+suite('Main page suite', function () {
+  test('[P] login', async function ({ I, browser, users }) {
     await browser.get('http://localhost:4000/');
-    await I.onMainPageSetValuesToLoginForm({ username: 'admin', password: 'admin' });
-    await I.onMainPagePerformOnLoginForm({ login: 'click' });
-    await I.onTablesPageWaitForVisibilityStateTablesHeader({ analytics: true });
-    await I.onTablesPageWaitForVisibilityStateMachinesList({ length: '>0', _action: { manufacturer: null } });
 
-    const result = await I.onTablesPageGetRandomDataFromMachinesList(['manufacturer', 'price'], { _indexes: 10 });
-    console.log(result);
+    await I.onMainPageSetValuesToLoginForm(users.admin)
+      .onMainPagePerformOnLoginForm({ login: 'click' })
+      .onTablesPageWaitForVisibilityStateTablesHeader({ analytics: true })
+      .onTablesPageWaitForVisibilityStateMachinesList({
+        length: '<100',
+        machineLength: true,
+        _action: { manufacturer: null, machineLength: null },
+      })
+      .onTablesPageWaitForContentStateMachinesList(
+        {
+          price: (str) => Number.parseInt(str) > 10,
+          _action: { price: null },
+        },
+        { customCheck: true },
+      );
   });
 });

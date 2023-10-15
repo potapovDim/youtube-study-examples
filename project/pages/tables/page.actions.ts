@@ -4,9 +4,11 @@ import {
   IWaitOpts,
   CollectionActionType,
   CollectionWaitingType,
+  CollectionWaitingContentType,
   ButtonAction,
   ButtonGetRes,
   ButtonIsDispRes,
+  ButtonContent,
 } from '../../../lib';
 
 import { TablePage } from './page';
@@ -16,7 +18,7 @@ const page = new TablePage();
 type TonTablesPageGetRandomDataAndFieldValuesFromMachinesListEntryFields =
   | 'manufacturer'
   | 'workVolume'
-  | 'length'
+  | 'machineLength'
   | 'width'
   | 'weight'
   | 'power'
@@ -24,18 +26,18 @@ type TonTablesPageGetRandomDataAndFieldValuesFromMachinesListEntryFields =
 type TonTablesPageGetRandomDataAndFieldValuesFromMachinesListEntry = Omit<
   CollectionActionType<
     {
-      manufacturer?: ButtonGetRes;
-      workVolume?: ButtonGetRes;
-      length?: ButtonGetRes;
-      width?: ButtonGetRes;
-      weight?: ButtonGetRes;
-      power?: ButtonGetRes;
-      price?: ButtonGetRes;
+      manufacturer?: ButtonContent;
+      workVolume?: ButtonContent;
+      machineLength?: ButtonContent;
+      width?: ButtonContent;
+      weight?: ButtonContent;
+      power?: ButtonContent;
+      price?: ButtonContent;
     },
     {
       manufacturer?: ButtonIsDispRes;
       workVolume?: ButtonIsDispRes;
-      length?: ButtonIsDispRes;
+      machineLength?: ButtonIsDispRes;
       width?: ButtonIsDispRes;
       weight?: ButtonIsDispRes;
       power?: ButtonIsDispRes;
@@ -117,18 +119,18 @@ async function onTablesPagePerformOnTablesHeader<Tentry extends TheaderAction>(
 
 type TmachinesListAction = CollectionActionType<
   {
-    manufacturer?: ButtonGetRes;
-    workVolume?: ButtonGetRes;
-    length?: ButtonGetRes;
-    width?: ButtonGetRes;
-    weight?: ButtonGetRes;
-    power?: ButtonGetRes;
-    price?: ButtonGetRes;
+    manufacturer?: ButtonContent;
+    workVolume?: ButtonContent;
+    machineLength?: ButtonContent;
+    width?: ButtonContent;
+    weight?: ButtonContent;
+    power?: ButtonContent;
+    price?: ButtonContent;
   },
   {
     manufacturer?: ButtonIsDispRes;
     workVolume?: ButtonIsDispRes;
-    length?: ButtonIsDispRes;
+    machineLength?: ButtonIsDispRes;
     width?: ButtonIsDispRes;
     weight?: ButtonIsDispRes;
     power?: ButtonIsDispRes;
@@ -137,7 +139,7 @@ type TmachinesListAction = CollectionActionType<
   {
     manufacturer?: ButtonAction;
     workVolume?: ButtonAction;
-    length?: ButtonAction;
+    machineLength?: ButtonAction;
     width?: ButtonAction;
     weight?: ButtonAction;
     power?: ButtonAction;
@@ -176,18 +178,18 @@ async function onTablesPageGetDataFromTablesHeader<Tentry extends TheaderGet>(
 
 type TmachinesListGet = CollectionActionType<
   {
-    manufacturer?: ButtonGetRes;
-    workVolume?: ButtonGetRes;
-    length?: ButtonGetRes;
-    width?: ButtonGetRes;
-    weight?: ButtonGetRes;
-    power?: ButtonGetRes;
-    price?: ButtonGetRes;
+    manufacturer?: ButtonContent;
+    workVolume?: ButtonContent;
+    machineLength?: ButtonContent;
+    width?: ButtonContent;
+    weight?: ButtonContent;
+    power?: ButtonContent;
+    price?: ButtonContent;
   },
   {
     manufacturer?: ButtonIsDispRes;
     workVolume?: ButtonIsDispRes;
-    length?: ButtonIsDispRes;
+    machineLength?: ButtonIsDispRes;
     width?: ButtonIsDispRes;
     weight?: ButtonIsDispRes;
     power?: ButtonIsDispRes;
@@ -196,7 +198,7 @@ type TmachinesListGet = CollectionActionType<
   {
     manufacturer?: ButtonAction;
     workVolume?: ButtonAction;
-    length?: ButtonAction;
+    machineLength?: ButtonAction;
     width?: ButtonAction;
     weight?: ButtonAction;
     power?: ButtonAction;
@@ -206,7 +208,7 @@ type TmachinesListGet = CollectionActionType<
 type TmachinesListGetResult = {
   manufacturer?: ButtonGetRes;
   workVolume?: ButtonGetRes;
-  length?: ButtonGetRes;
+  machineLength?: ButtonGetRes;
   width?: ButtonGetRes;
   weight?: ButtonGetRes;
   power?: ButtonGetRes;
@@ -244,18 +246,18 @@ async function onTablesPageGetVisibilityOfTablesHeader<Tentry extends TheaderIsD
 
 type TmachinesListIsDisplayed = CollectionActionType<
   {
-    manufacturer?: ButtonGetRes;
-    workVolume?: ButtonGetRes;
-    length?: ButtonGetRes;
-    width?: ButtonGetRes;
-    weight?: ButtonGetRes;
-    power?: ButtonGetRes;
-    price?: ButtonGetRes;
+    manufacturer?: ButtonContent;
+    workVolume?: ButtonContent;
+    machineLength?: ButtonContent;
+    width?: ButtonContent;
+    weight?: ButtonContent;
+    power?: ButtonContent;
+    price?: ButtonContent;
   },
   {
     manufacturer?: ButtonIsDispRes;
     workVolume?: ButtonIsDispRes;
-    length?: ButtonIsDispRes;
+    machineLength?: ButtonIsDispRes;
     width?: ButtonIsDispRes;
     weight?: ButtonIsDispRes;
     power?: ButtonIsDispRes;
@@ -264,7 +266,7 @@ type TmachinesListIsDisplayed = CollectionActionType<
   {
     manufacturer?: ButtonAction;
     workVolume?: ButtonAction;
-    length?: ButtonAction;
+    machineLength?: ButtonAction;
     width?: ButtonAction;
     weight?: ButtonAction;
     power?: ButtonAction;
@@ -274,7 +276,7 @@ type TmachinesListIsDisplayed = CollectionActionType<
 type TmachinesListIsDisplayedResult = {
   manufacturer?: ButtonIsDispRes;
   workVolume?: ButtonIsDispRes;
-  length?: ButtonIsDispRes;
+  machineLength?: ButtonIsDispRes;
   width?: ButtonIsDispRes;
   weight?: ButtonIsDispRes;
   power?: ButtonIsDispRes;
@@ -311,18 +313,18 @@ async function onTablesPageWaitForVisibilityStateTablesHeader<Tentry extends The
 
 type TmachinesListWaitForVisibilityState = CollectionWaitingType<
   {
-    manufacturer?: ButtonGetRes;
-    workVolume?: ButtonGetRes;
-    length?: ButtonGetRes;
-    width?: ButtonGetRes;
-    weight?: ButtonGetRes;
-    power?: ButtonGetRes;
-    price?: ButtonGetRes;
+    manufacturer?: ButtonContent;
+    workVolume?: ButtonContent;
+    machineLength?: ButtonContent;
+    width?: ButtonContent;
+    weight?: ButtonContent;
+    power?: ButtonContent;
+    price?: ButtonContent;
   },
   {
     manufacturer?: ButtonIsDispRes;
     workVolume?: ButtonIsDispRes;
-    length?: ButtonIsDispRes;
+    machineLength?: ButtonIsDispRes;
     width?: ButtonIsDispRes;
     weight?: ButtonIsDispRes;
     power?: ButtonIsDispRes;
@@ -331,7 +333,7 @@ type TmachinesListWaitForVisibilityState = CollectionWaitingType<
   {
     manufacturer?: ButtonAction;
     workVolume?: ButtonAction;
-    length?: ButtonAction;
+    machineLength?: ButtonAction;
     width?: ButtonAction;
     weight?: ButtonAction;
     power?: ButtonAction;
@@ -340,7 +342,7 @@ type TmachinesListWaitForVisibilityState = CollectionWaitingType<
   {
     manufacturer?: ButtonIsDispRes;
     workVolume?: ButtonIsDispRes;
-    length?: ButtonIsDispRes;
+    machineLength?: ButtonIsDispRes;
     width?: ButtonIsDispRes;
     weight?: ButtonIsDispRes;
     power?: ButtonIsDispRes;
@@ -360,10 +362,10 @@ async function onTablesPageWaitForVisibilityStateMachinesList<Tentry extends Tma
 /** ====================== waitForContentState ================== */
 
 type TheaderWaitForContentState = {
-  analytics?: ButtonGetRes;
-  combines?: ButtonGetRes;
-  adminPanel?: ButtonGetRes;
-  logOut?: ButtonGetRes;
+  analytics?: ButtonContent;
+  combines?: ButtonContent;
+  adminPanel?: ButtonContent;
+  logOut?: ButtonContent;
 };
 type TheaderWaitForContentStateResult = boolean;
 async function onTablesPageWaitForContentStateTablesHeader<Tentry extends TheaderWaitForContentState>(
@@ -373,20 +375,20 @@ async function onTablesPageWaitForContentStateTablesHeader<Tentry extends Theade
   return await page.waitForContentState({ header: data }, opts);
 }
 
-type TmachinesListWaitForContentState = CollectionWaitingType<
+type TmachinesListWaitForContentState = CollectionWaitingContentType<
   {
-    manufacturer?: ButtonGetRes;
-    workVolume?: ButtonGetRes;
-    length?: ButtonGetRes;
-    width?: ButtonGetRes;
-    weight?: ButtonGetRes;
-    power?: ButtonGetRes;
-    price?: ButtonGetRes;
+    manufacturer?: ButtonContent;
+    workVolume?: ButtonContent;
+    machineLength?: ButtonContent;
+    width?: ButtonContent;
+    weight?: ButtonContent;
+    power?: ButtonContent;
+    price?: ButtonContent;
   },
   {
     manufacturer?: ButtonIsDispRes;
     workVolume?: ButtonIsDispRes;
-    length?: ButtonIsDispRes;
+    machineLength?: ButtonIsDispRes;
     width?: ButtonIsDispRes;
     weight?: ButtonIsDispRes;
     power?: ButtonIsDispRes;
@@ -395,7 +397,7 @@ type TmachinesListWaitForContentState = CollectionWaitingType<
   {
     manufacturer?: ButtonAction;
     workVolume?: ButtonAction;
-    length?: ButtonAction;
+    machineLength?: ButtonAction;
     width?: ButtonAction;
     weight?: ButtonAction;
     power?: ButtonAction;
@@ -404,7 +406,7 @@ type TmachinesListWaitForContentState = CollectionWaitingType<
   {
     manufacturer?: ButtonGetRes;
     workVolume?: ButtonGetRes;
-    length?: ButtonGetRes;
+    machineLength?: ButtonGetRes;
     width?: ButtonGetRes;
     weight?: ButtonGetRes;
     power?: ButtonGetRes;
@@ -424,18 +426,18 @@ async function onTablesPageWaitForContentStateMachinesList<Tentry extends Tmachi
 type TonTablesPageGetCollectionFromMachinesListEntry = Omit<
   CollectionActionType<
     {
-      manufacturer?: ButtonGetRes;
-      workVolume?: ButtonGetRes;
-      length?: ButtonGetRes;
-      width?: ButtonGetRes;
-      weight?: ButtonGetRes;
-      power?: ButtonGetRes;
-      price?: ButtonGetRes;
+      manufacturer?: ButtonContent;
+      workVolume?: ButtonContent;
+      machineLength?: ButtonContent;
+      width?: ButtonContent;
+      weight?: ButtonContent;
+      power?: ButtonContent;
+      price?: ButtonContent;
     },
     {
       manufacturer?: ButtonIsDispRes;
       workVolume?: ButtonIsDispRes;
-      length?: ButtonIsDispRes;
+      machineLength?: ButtonIsDispRes;
       width?: ButtonIsDispRes;
       weight?: ButtonIsDispRes;
       power?: ButtonIsDispRes;
@@ -447,7 +449,7 @@ type TonTablesPageGetCollectionFromMachinesListEntry = Omit<
 type TonTablesPageGetCollectionFromMachinesList = {
   manufacturer?: ButtonGetRes;
   workVolume?: ButtonGetRes;
-  length?: ButtonGetRes;
+  machineLength?: ButtonGetRes;
   width?: ButtonGetRes;
   weight?: ButtonGetRes;
   power?: ButtonGetRes;

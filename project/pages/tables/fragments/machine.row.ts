@@ -3,7 +3,7 @@ import { Fragment, Button } from '../../../../lib';
 class MachineRowFragment extends Fragment {
   manufacturer;
   workVolume;
-  length;
+  machineLength;
   width;
   weight;
   power;
@@ -14,7 +14,7 @@ class MachineRowFragment extends Fragment {
 
     this.manufacturer = this.init('td:nth-child(1)', 'manufacturer', Button);
     this.workVolume = this.init('td:nth-child(2)', 'workVolume', Button);
-    this.length = this.init('td:nth-child(3)', 'length', Button);
+    this.machineLength = this.init('td:nth-child(3)', 'length', Button);
     this.width = this.init('td:nth-child(4)', 'width', Button);
     this.weight = this.init('td:nth-child(5)', 'weight', Button);
     this.power = this.init('td:nth-child(6)', 'power', Button);

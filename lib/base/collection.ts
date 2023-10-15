@@ -16,6 +16,11 @@ export type CollectionWaitingType<Where = any, Visible = any, Action = any, ToCo
   | ToCompare
   | ToCompare[];
 
+export type CollectionWaitingContentType<Where = any, Visible = any, Action = any, ToCompare = any> =
+  | (CollectionActionType<Where, Visible, Action> & { length?: string | number } & Where)
+  | ToCompare
+  | ToCompare[];
+
 class Collection {
   roots: PromodElementsType;
   id: string;

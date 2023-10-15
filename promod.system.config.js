@@ -19,10 +19,10 @@ const baseElementsActionsDescription = {
       entryType: 'IsDispRes',
     },
     waitForContentState: {
-      entryType: 'GetRes',
+      entryType: 'Content',
     },
     _where: {
-      resultType: 'GetRes',
+      resultType: 'Content',
     },
     _visible: {
       resultType: 'IsDispRes',
@@ -44,10 +44,10 @@ const baseElementsActionsDescription = {
       entryType: 'IsDispRes',
     },
     waitForContentState: {
-      entryType: 'GetRes',
+      entryType: 'Content',
     },
     _where: {
-      resultType: 'GetRes',
+      resultType: 'Content',
     },
     _visible: {
       resultType: 'IsDispRes',
@@ -58,6 +58,7 @@ const baseElementsActionsDescription = {
 const collectionActionTypes = {
   action: 'CollectionActionType',
   check: 'CollectionWaitingType',
+  checkContent: 'CollectionWaitingContentType',
 };
 
 const baseCollectionActionsDescription = {
@@ -67,7 +68,7 @@ const baseCollectionActionsDescription = {
       visible: { action: '_visible', actionType: 'resultType' },
       action: { action: 'get', actionType: 'entryType' },
       compare: { action: 'get', actionType: 'resultType' },
-      generic: 'CollectionWaitingType',
+      generic: 'CollectionWaitingContentType',
     },
   },
   waitForVisibilityState: {

@@ -33,7 +33,6 @@ class Element extends BaseLayer {
   }
 
   async isDisplayed() {
-    console.log(this.root.selector);
     return this.root.isDisplayed();
   }
 
